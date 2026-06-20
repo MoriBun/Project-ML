@@ -1,61 +1,46 @@
-# Project Final - Dự đoán giai đoạn xơ gan (Liver Cirrhosis)
-
-Đồ án cuối kỳ môn Machine Learning: phân tích, tiền xử lý và xây dựng các mô hình học máy để dự đoán **giai đoạn bệnh xơ gan (Stage)** dựa trên bộ dữ liệu `liver_cirrhosis.csv` (25.000 dòng, 19 cột).
-
-## Cấu trúc thư mục
-
+# Final Project - Liver Cirrhosis Stage Prediction
+Machine Learning final project: analyzing, preprocessing, and building machine learning models to predict the **liver cirrhosis stage (Stage)** based on the `liver_cirrhosis.csv` dataset (25,000 rows, 19 columns).
+## Directory structure
 ```
 Project-ML/
 ├── Code/
-│   ├── Code_Final.ipynb     # Notebook chính chứa toàn bộ code
+│   ├── Code_Final.ipynb     # Main notebook containing all the code
 │   └── data/
-│       └── data.zip         # Chứa liver_cirrhosis.csv
-├── Báo cáo.pdf               # Báo cáo chi tiết của đồ án
-├── Bản trình bày.pdf          # Slide trình bày
-└── Tệp_thông_tin.pdf         # Thông tin nhóm & hướng dẫn chạy chương trình
+│       └── data.zip         # Contains liver_cirrhosis.csv
+├── Báo cáo.pdf               # Detailed project report
+├── Bản trình bày.pdf          # Presentation slides
+└── Tệp_thông_tin.pdf         # Group information & instructions for running the program
 ```
-
-## Nội dung thực hiện
-
-Notebook `Code_Final.ipynb` được tổ chức theo các phần chính:
-
-1. **Tiền xử lý dữ liệu**: đọc dữ liệu, mô tả & thống kê sơ bộ, kiểm tra giá trị thiếu/bất thường, chuyển đổi đơn vị, xử lý outliers, chuẩn hóa dữ liệu.
-2. **Phân tích và trực quan hóa dữ liệu**: khảo sát phân bố các trường, mối liên hệ giữa các đặc trưng và giai đoạn bệnh.
-3. **Phân cụm dữ liệu**: áp dụng K-Means, đánh giá bằng WCSS (Elbow) và Silhouette Score.
-4. **Phân loại**: áp dụng và so sánh các mô hình KNN, MLP, SVM trên dữ liệu gốc và dữ liệu sau giảm chiều (PCA/LDA).
-5. **Hồi quy**: chuyển bài toán phân loại giai đoạn về dạng hồi quy, áp dụng MLP và Linear Regression.
-
-## Thành viên nhóm và phân công
-
-| Thành viên | MSV | Công việc |
+## Work performed
+The `Code_Final.ipynb` notebook is organized into the following main sections:
+1. **Data preprocessing**: reading the data, preliminary description & statistics, checking for missing/abnormal values, unit conversion, outlier handling, data normalization.
+2. **Data analysis and visualization**: examining the distribution of fields, the relationships between features and the disease stage.
+3. **Clustering**: applying K-Means, evaluated with WCSS (Elbow) and Silhouette Score.
+4. **Classification**: applying and comparing KNN, MLP, and SVM models on the original data and on the dimensionality-reduced data (PCA/LDA).
+5. **Regression**: reformulating the stage-classification problem as a regression task, applying MLP and Linear Regression.
+## Team members and task allocation
+| Member | Student ID | Tasks |
 |---|---|---|
-| Nguyễn Huy Hoàng (Trưởng nhóm) | 22000095 | Tiền xử lý dữ liệu, phân tích dữ liệu, mô hình KNN (phân loại), Random Forest (hồi quy) |
-| Tạ Đăng Đức | 22000088 | Phân cụm dữ liệu, mô hình MLP (phân loại), Linear Regression (hồi quy) |
-| Đào Mạnh Đức | 22000085 | Giảm chiều dữ liệu (PCA - LDA), mô hình SVM (phân loại) |
-
-## Hướng dẫn chạy chương trình
-
-Chương trình được xây dựng để chạy trên **Google Colab**.
-
-1. Truy cập [Google Colab](https://colab.research.google.com/) và tải lên file `Code/Code_Final.ipynb`.
-2. Tải thư mục `Code/data` (chứa `data.zip`) lên Colab, ghi nhớ đường dẫn (ví dụ `/content/data`).
-3. Trong notebook, tìm và sửa biến đường dẫn file zip cho khớp với vị trí thực tế, ví dụ:
+| Nguyễn Huy Hoàng (Team leader) | 22000095 | Data preprocessing, data analysis, KNN model (classification), Random Forest (regression) |
+| Tạ Đăng Đức | 22000088 | Data clustering, MLP model (classification), Linear Regression (regression) |
+| Đào Mạnh Đức | 22000085 | Dimensionality reduction (PCA - LDA), SVM model (classification) |
+## How to run the program
+The program is built to run on **Google Colab**.
+1. Go to [Google Colab](https://colab.research.google.com/) and upload the `Code/Code_Final.ipynb` file.
+2. Upload the `Code/data` directory (containing `data.zip`) to Colab, and note the path (e.g. `/content/data`).
+3. In the notebook, locate and edit the zip-file path variable to match the actual location, for example:
    ```python
    local_zip = '/content/data/data.zip'
    extract_to = '/content/'
    ```
-4. Chạy lần lượt các cell:
-   - Kết nối Google Drive (nếu sử dụng Drive để lưu trữ dữ liệu).
-   - Import các thư viện cần thiết.
-   - Giải nén `data.zip`.
-   - Đọc dữ liệu từ `liver_cirrhosis.csv`.
-   - Các cell tiếp theo: tiền xử lý, phân tích, huấn luyện và hiển thị kết quả mô hình.
-
-> Nếu không chạy trên Colab, cần chỉnh lại đường dẫn dữ liệu phù hợp với môi trường cục bộ.
-
-Thông tin chi tiết hơn về cách tổ chức và chạy chương trình xem tại [Tệp_thông_tin.pdf](Tệp_thông_tin.pdf).
-
-## Tài liệu liên quan
-
-- [Báo cáo.pdf](Báo%20cáo.pdf): báo cáo chi tiết toàn bộ đồ án.
-- [Bản trình bày.pdf](Bản%20trình%20bày.pdf): slide trình bày.
+4. Run the cells in order:
+   - Connect to Google Drive (if you use Drive to store the data).
+   - Import the required libraries.
+   - Extract `data.zip`.
+   - Read the data from `liver_cirrhosis.csv`.
+   - Subsequent cells: preprocessing, analysis, training, and displaying the model results.
+> If you are not running on Colab, adjust the data paths to match your local environment.
+For more detailed information about how the program is organized and run, see [Tệp_thông_tin.pdf](Tệp_thông_tin.pdf).
+## Related documents
+- [Báo cáo.pdf](Báo%20cáo.pdf): the full detailed project report.
+- [Bản trình bày.pdf](Bản%20trình%20bày.pdf): presentation slides.
